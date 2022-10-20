@@ -132,13 +132,18 @@
 
     async function main () {
 
-      // const data = await fetch("./data.json").then(response => response.json())
-
-      const { Result: data } = await fetch("https://estagio.geopostenergy.com/WorldCup/GetAllTeams", {
-        headers: { 
-          "git-user": "mateusapsantos"
-        }
-      }).then(response => response.json())
+      let data = [];
+      try {
+        const { Result } = await fetch("https://estagio.geopostenergy.com/WorldCup/GetAllTeams", {
+          headers: { 
+            "git-user": "mateusapsantos"
+          }
+        }).then(response => response.json())
+        data = Result;
+      } catch (err) {
+        console.log(err);
+        data = await fetch("./data.json").then(response => response.json())
+      }
 
       function getRandomInt(min, max) {
         min = Math.ceil(min);
