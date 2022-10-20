@@ -346,8 +346,7 @@
 
                 removeClass(subNewComponent, "col-12");
                 removeClass(subNewComponent, "col-md-6");
-                removeClass(subNewComponent, "mb-4");
-                addClass(subNewComponent, "mb-0");
+                addClass(subNewComponent.querySelector(".card ")[0], "mb-0");
                 addClass(subNewComponent, "col-6")
                 addClass(subNewComponent, index === 0 ? "pe-0" : "ps-0")
 
