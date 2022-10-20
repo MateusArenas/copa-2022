@@ -132,13 +132,13 @@
 
     async function main () {
 
-      const data = await fetch("./data.json").then(response => response.json())
+      // const data = await fetch("./data.json").then(response => response.json())
 
-      // const { Result: data } = await fetch("https://estagio.geopostenergy.com/WorldCup/GetAllTeams", {
-      //   headers: { 
-      //     "git-user": "mateusapsantos"
-      //   }
-      // }).then(response => response.json())
+      const { Result: data } = await fetch("https://estagio.geopostenergy.com/WorldCup/GetAllTeams", {
+        headers: { 
+          "git-user": "mateusapsantos"
+        }
+      }).then(response => response.json())
 
       function getRandomInt(min, max) {
         min = Math.ceil(min);
@@ -376,7 +376,7 @@
                 newComponent.querySelector("#sub-games").appendChild(subNewComponent);
               })
             }
-            
+
             //setando iamges dos times
             newComponent.querySelector("#team-a-img").src = images[win?.Name];
             newComponent.querySelector("#team-b-img").src = images[looser?.Name];
@@ -404,29 +404,29 @@
 
       onChange("value-0");
 
-      // const body = {
-      //   "equipeA": final_jogos[0].win.Token,
-      //   "equipeB": final_jogos[0].looser.Token,
-      //   "goalsEquipeA": final_jogos[0].win.goals,
-      //   "goalsEquipeB": final_jogos[0].looser.goals,
-      //   "goalsPenaltyTimeA": final_jogos[0].win.penaltys,
-      //   "goalsPenaltyTimeB": final_jogos[0].looser.penaltys
-      // }
+      const body = {
+        "equipeA": final_jogos[0].win.Token,
+        "equipeB": final_jogos[0].looser.Token,
+        "goalsEquipeA": final_jogos[0].win.goals,
+        "goalsEquipeB": final_jogos[0].looser.goals,
+        "goalsPenaltyTimeA": final_jogos[0].win.penaltys,
+        "goalsPenaltyTimeB": final_jogos[0].looser.penaltys
+      }
 
-      // try {
-      //   const res = await fetch("https://estagio.geopostenergy.com/WorldCup/InsertFinalResult", {
-      //     method: "POST",
-      //     headers: { 
-      //       "git-user": "mateusapsantos",
-      //       'Accept': 'application/json',
-      //       'Content-Type': 'application/json'
-      //     },
-      //     body: JSON.stringify(body)
-      //   }).then(response => response.json())
-      //   console.log({res});
-      // } catch (err) {
-      //   console.log(err);
-      // }
+      try {
+        const res = await fetch("https://estagio.geopostenergy.com/WorldCup/InsertFinalResult", {
+          method: "POST",
+          headers: { 
+            "git-user": "mateusapsantos",
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(body)
+        }).then(response => response.json())
+        console.log({res});
+      } catch (err) {
+        console.log(err);
+      }
     }
 
     main();
