@@ -347,7 +347,7 @@
                 removeClass(subNewComponent, "col-12");
                 removeClass(subNewComponent, "col-md-6");
                 addClass(subNewComponent, "col-6")
-                addClass(subNewComponent, "px-0")
+                addClass(subNewComponent, index === 0 ? "ps-0" : "pe-0")
 
                 console.log({ game });
 
