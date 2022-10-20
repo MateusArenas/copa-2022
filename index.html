@@ -14,19 +14,19 @@
 
   <ul class="nav nav-tabs w-100 justify-content-center overflow-hidden  fixed-top bg-white align-items-center py-2" style="height: 50px;">
     <li class="nav-item">
-      <button style="font-size: 12px;" id="value-0" class="nav-link bg-white-border-none fw-semibold active">Inicial</button>
+      <button style="font-size: 12px;" id="inicial" class="nav-link bg-white-border-none fw-semibold active">Inicial</button>
     </li>
     <li class="nav-item">
-      <button style="font-size: 12px;" id="value-1" class="nav-link bg-white-border-none fw-semibold">Oitavas</button>
+      <button style="font-size: 12px;" id="oitavas" class="nav-link bg-white-border-none fw-semibold">Oitavas</button>
     </li>
     <li class="nav-item">
-      <button style="font-size: 12px;" id="value-2" class="nav-link bg-white-border-none fw-semibold">Quartas</button>
+      <button style="font-size: 12px;" id="quartas" class="nav-link bg-white-border-none fw-semibold">Quartas</button>
     </li>
     <li class="nav-item">
-      <button style="font-size: 12px;" id="value-3" class="nav-link bg-white-border-none fw-semibold">Semi</button>
+      <button style="font-size: 12px;" id="semi" class="nav-link bg-white-border-none fw-semibold">Semi</button>
     </li>
     <li class="nav-item">
-      <button style="font-size: 12px;" id="value-4" class="nav-link bg-white-border-none fw-semibold">Final</button>
+      <button style="font-size: 12px;" id="final" class="nav-link bg-white-border-none fw-semibold">Final</button>
     </li>
 
   </ul>
@@ -292,14 +292,19 @@
         }
       }
 
-      const ids = new Array(5).fill("value").map((key, index) => `${key}-${index}`);
+      function insertParam(key,value) {
+          const url = new URL(window.location);
+          url.searchParams.set(key, value);
+          window.history.pushState(null, '', url.toString());
+      }
+
 
       const app = document.getElementById("app");
       
       const component = document.getElementById("component-card");
       component.setAttribute("id", "");
       
-      function onChange(id="value-0") {
+      function onChange(id="inicial") {
 
           while (app.firstChild) {
             app.removeChild(app.lastChild);
@@ -307,22 +312,29 @@
 
           let data = grupos_jogos;
           switch (id) {
-            case "value-0":
+            case "inicial":
               data = grupos_jogos;
+              insertParam("match", "inicial")
               break;
-            case "value-1":
+            case "oitavas":
               data = oitavas_jogos;
+              insertParam("match", "oitavas")
               break;
-            case "value-2":
+            case "quartas":
               data = quartas_jogos;
+              insertParam("match", "quartas")
               break;
-            case "value-3":
+            case "semi":
               data = semi_jogos;
+              insertParam("match", "semi")
               break;
-            case "value-4":
+            case "final":
               data = final_jogos;
+              insertParam("match", "final")
               break;
             default:
+              data = grupos_jogos;
+              insertParam("match", "inicial")
               break;
           }
 
@@ -402,6 +414,7 @@
           })
       }
 
+      const ids = ['inicial', "oitavas", "quartas", "semi", "final"];
       ids.forEach((id, index) => {
         const buttonEl = document.getElementById(id);
         buttonEl.addEventListener("click", function () {
@@ -411,7 +424,7 @@
         })
       })
 
-      onChange("value-0");
+      onChange("inicial");
 
       const body = {
         "equipeA": final_jogos[0].win.Token,
