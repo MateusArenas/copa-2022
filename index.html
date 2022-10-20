@@ -341,7 +341,7 @@
               const [first_game, second_game] = item.games;
               
               [first_game, second_game].forEach((game, index) => {
-                const subNewComponent = component.cloneNode(false);
+                const subNewComponent = component.cloneNode(true);
                 subNewComponent.setAttribute("style", "display: block !important;");
 
                 removeClass(subNewComponent, "col-12");
