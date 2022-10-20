@@ -351,18 +351,21 @@
 
                 console.log({ game });
 
-                game.teams.forEach((team, i) => {
-                  //setando iamges dos times
-                  const key = i === 0 ? "a" : "b";
-                  subNewComponent.querySelector(`#team-${key}-img`).src = images[team?.Name];
-                  subNewComponent.querySelector(`#team-${key}-img`).setAttribute("style", "transform: scale(0.75);");
+                if (game?.teams?.length) {
 
-                  subNewComponent.querySelector(`#team-${key}-name`).innerHTML = team?.Name;
-                  subNewComponent.querySelector(`#team-${key}-name`).setAttribute("style", "transform: scale(0.75);");
-
-                  subNewComponent.querySelector(`#team-${key}-goals`).innerHTML = team?.goals || 0;
-                  subNewComponent.querySelector(`#team-${key}-goals`).setAttribute("style", "transform: scale(0.75);");
-                })
+                  game?.teams?.forEach((team, i) => {
+                    //setando iamges dos times
+                    const key = i === 0 ? "a" : "b";
+                    subNewComponent.querySelector(`#team-${key}-img`).src = images[team?.Name];
+                    subNewComponent.querySelector(`#team-${key}-img`).setAttribute("style", "transform: scale(0.75);");
+  
+                    subNewComponent.querySelector(`#team-${key}-name`).innerHTML = team?.Name;
+                    subNewComponent.querySelector(`#team-${key}-name`).setAttribute("style", "transform: scale(0.75);");
+  
+                    subNewComponent.querySelector(`#team-${key}-goals`).innerHTML = team?.goals || 0;
+                    subNewComponent.querySelector(`#team-${key}-goals`).setAttribute("style", "transform: scale(0.75);");
+                  })
+                }
 
 
                 // // setando nomes dos times
