@@ -356,22 +356,27 @@
                   subNewComponent.querySelector(`#team-${key}-img`).src = images[team?.Name];
                   subNewComponent.querySelector(`#team-${key}-img`).setAttribute("style", "transform: scale(0.75);");
 
+                  subNewComponent.querySelector(`#team-${key}-name`).innerHTML = team?.Name;
+                  subNewComponent.querySelector(`#team-${key}-name`).setAttribute("style", "transform: scale(0.75);");
+
+                  subNewComponent.querySelector(`#team-${key}-goals`).innerHTML = team?.goals || 0;
+                  subNewComponent.querySelector(`#team-${key}-goals`).setAttribute("style", "transform: scale(0.75);");
                 })
 
 
-                // setando nomes dos times
-                subNewComponent.querySelector("#team-a-name").innerHTML = game?.win?.Name;
-                subNewComponent.querySelector("#team-a-name").setAttribute("style", "transform: scale(0.75);");
-                subNewComponent.querySelector("#team-b-name").innerHTML = game?.looser?.Name;
-                subNewComponent.querySelector("#team-b-name").setAttribute("style", "transform: scale(0.75);");
+                // // setando nomes dos times
+                // subNewComponent.querySelector("#team-a-name").innerHTML = game?.win?.Name;
+                // subNewComponent.querySelector("#team-a-name").setAttribute("style", "transform: scale(0.75);");
+                // subNewComponent.querySelector("#team-b-name").innerHTML = game?.looser?.Name;
+                // subNewComponent.querySelector("#team-b-name").setAttribute("style", "transform: scale(0.75);");
 
 
-                //setando goals dos times
-                subNewComponent.querySelector("#team-a-goals").innerHTML = game?.win?.goals || 0;
-                subNewComponent.querySelector("#team-a-goals").setAttribute("style", "transform: scale(0.75);");
+                // //setando goals dos times
+                // subNewComponent.querySelector("#team-a-goals").innerHTML = game?.win?.goals || 0;
+                // subNewComponent.querySelector("#team-a-goals").setAttribute("style", "transform: scale(0.75);");
 
-                subNewComponent.querySelector("#team-b-goals").innerHTML = game?.looser?.goals || 0;
-                subNewComponent.querySelector("#team-b-goals").setAttribute("style", "transform: scale(0.75);");
+                // subNewComponent.querySelector("#team-b-goals").innerHTML = game?.looser?.goals || 0;
+                // subNewComponent.querySelector("#team-b-goals").setAttribute("style", "transform: scale(0.75);");
 
 
                 newComponent.querySelector("#sub-games").appendChild(subNewComponent);
