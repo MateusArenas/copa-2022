@@ -298,6 +298,11 @@
           window.history.pushState(null, '', url.toString());
       }
 
+      function searchParam(key) {
+        const url = new URL(window.location);
+        return url.searchParams.get(key)
+      }
+
 
       const app = document.getElementById("app");
       
@@ -424,7 +429,8 @@
         })
       })
 
-      onChange("inicial");
+      const initial = searchParam("match");
+      onChange(initial);
 
       const body = {
         "equipeA": final_jogos[0].win.Token,
