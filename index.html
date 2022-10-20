@@ -350,13 +350,13 @@
 
                 console.log({ game });
 
-                // subNewComponent.setAttribute("style", "transform: scale(0.2);");
+                game.teams.forEach((team, i) => {
+                  //setando iamges dos times
+                  const key = i === 0 ? "a" : "b";
+                  subNewComponent.querySelector(`#team-${key}-img`).src = images[team?.Name];
+                  subNewComponent.querySelector(`#team-${key}-img`).setAttribute("style", "transform: scale(0.75);");
 
-                //setando iamges dos times
-                subNewComponent.querySelector("#team-a-img").src = images[game?.win?.Name];
-                subNewComponent.querySelector("#team-a-img").setAttribute("style", "transform: scale(0.75);");
-                subNewComponent.querySelector("#team-b-img").src = images[game?.looser?.Name];
-                subNewComponent.querySelector("#team-b-img").setAttribute("style", "transform: scale(0.75);");
+                })
 
 
                 // setando nomes dos times
