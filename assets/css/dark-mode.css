@@ -26,8 +26,8 @@
   background-color: #2a2a34;
   border-color: rgba(255, 255, 255, 0.15);
   border-bottom-color: #2a2a34 !important;
-  border-bottom-width: 8px !important;
-  margin-bottom: -6px !important;
+  border-bottom-width: 6px !important;
+  margin-bottom: -7px !important;
   z-index: 99;
 }
 
