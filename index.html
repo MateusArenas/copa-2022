@@ -429,7 +429,7 @@
         })
       })
 
-      const initial = searchParam("match");
+      const initial = searchParam("match") || "initial";
       const buttonEl = document.getElementById(initial);
       addClass(buttonEl, "active");
       onChange(initial);
