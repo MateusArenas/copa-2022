@@ -67,9 +67,9 @@
                 <h2  class="fw-bold" id="team-b-goals">5</h2>
               </div>
               <div id="penaltys" style="opacity: .75;" class="d-flex flex-row align-items-center justify-content-center position-absolute bottom-0">
-                <h6  class="fw-bold" id="penaltys-a">2</h6>
+                <h6  class="fw-bold" id="penaltys-a">0</h6>
                 <h6 style="opacity: .75;" class="mx-2">x</h6>
-                <h6  class="fw-bold" id="penaltys-b">5</h6>
+                <h6  class="fw-bold" id="penaltys-b">0</h6>
               </div>
             </div>
           </div>
@@ -343,6 +343,8 @@
               [first_game, second_game].forEach((game, index) => {
                 const subNewComponent = component.cloneNode(true);
                 subNewComponent.setAttribute("style", "display: block !important;");
+
+                subNewComponent.querySelector("#penaltys").setAttribute("style", "display: none !important;");
 
                 removeClass(subNewComponent, "col-12");
                 removeClass(subNewComponent, "col-md-6");
