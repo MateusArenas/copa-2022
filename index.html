@@ -357,6 +357,9 @@
                 addClass(subNewComponent, "col-6")
                 addClass(subNewComponent, index === 0 ? "pe-0" : "ps-0")
 
+                addClass(subNewComponent.querySelector(".card"), "border-0")
+
+
                 console.log({ game });
 
                 if (game?.teams?.length) {
