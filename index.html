@@ -430,6 +430,8 @@
       })
 
       const initial = searchParam("match");
+      const buttonEl = document.getElementById(initial);
+      addClass(buttonEl, "active");
       onChange(initial);
 
       const body = {
